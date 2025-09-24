@@ -1,3 +1,5 @@
+
+
 import { create } from "zustand";
 import {
   addEdge,
@@ -9,7 +11,6 @@ import {
 export const useStore = create((set, get) => ({
   nodes: [],
   edges: [],
-  nodeIDs: {}, 
   getNodeID: (type) => {
     const newIDs = { ...get().nodeIDs };
     if (newIDs[type] === undefined) {
@@ -20,28 +21,21 @@ export const useStore = create((set, get) => ({
     return `${type}-${newIDs[type]}`;
   },
   addNode: (node) => {
-    console.log('Adding node to store:', node); // Debug log
-    const currentNodes = get().nodes;
-    const newNodes = [...currentNodes, node];
-    console.log('Store will have nodes:', newNodes); // Debug log
     set({
-      nodes: newNodes
+      nodes: [...get().nodes, node]
     });
   },
   onNodesChange: (changes) => {
-    console.log('Nodes changed:', changes); // Debug log
     set({
       nodes: applyNodeChanges(changes, get().nodes),
     });
   },
   onEdgesChange: (changes) => {
-    console.log('Edges changed:', changes); // Debug log
     set({
       edges: applyEdgeChanges(changes, get().edges),
     });
   },
   onConnect: (connection) => {
-    console.log('New connection:', connection); // Debug log
     set({
       edges: addEdge({ ...connection, type: 'smoothstep', animated: true, markerEnd: { type: MarkerType.Arrow, height: '20px', width: '20px' } }, get().edges),
     });

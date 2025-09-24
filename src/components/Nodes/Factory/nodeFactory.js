@@ -1,5 +1,3 @@
-// /nodes/nodeFactory.js
-
 import { BaseNode } from '../Base/baseNode';
 import { nodeConfigs } from '../Config/nodeConfigs';
 

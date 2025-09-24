@@ -1,5 +1,3 @@
-// submit.js
-
 import { useStore } from "../../store/store";
 import { useState } from "react";
 import { 

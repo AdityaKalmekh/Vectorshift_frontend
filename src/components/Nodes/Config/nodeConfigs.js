@@ -1,5 +1,3 @@
-// /nodes/config/nodeConfigs.js
-
 import { Position } from 'reactflow';
 import { 
   FileInput, 

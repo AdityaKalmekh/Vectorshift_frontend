@@ -1,5 +1,3 @@
-// /nodes/base/baseNode.js
-
 import { useState, useMemo, useCallback } from 'react';
 import { Handle, Position } from 'reactflow';
 import { TextField } from '../Fields/TextField';
